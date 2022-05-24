@@ -1,12 +1,12 @@
 #!/bin/bash
 
-set -x
+set -xe
 
-function install_tool() {
+function install-tool() {
     TOOL_NAME=${1:?}
     TOOL_SCRIPT=${2:-${TOOL_NAME}.sh}
 
-    render_autocomplete $TOOL_NAME
+    render-autocomplete $TOOL_NAME
 
 	install -D -m 0755 -v $TOOL_SCRIPT ${HOME}/.local/bin/${TOOL_NAME}
 	install -D -m 0755 -v autocomplete.bash ${HOME}/.bash_completion.d/${TOOL_NAME}.bash
@@ -15,7 +15,7 @@ function install_tool() {
 	< $HOME/.bash_completion grep ${TOOL_NAME}.bash || echo "source \$HOME/.bash_completion.d/${TOOL_NAME}.bash" >> $HOME/.bash_completion
 }
 
-function render_autocomplete() {
+function render-autocomplete() {
     TOOL_NAME=${1:?}
 
     AUTOCOMPLETE_TEMPLATE=autocomplete.bash.template

@@ -1,2 +1,2 @@
 install:
-	bash cli-boilerplate.sh  install_tool cli-boilerplate
+	bash cli-boilerplate.sh  install-tool cli-boilerplate
